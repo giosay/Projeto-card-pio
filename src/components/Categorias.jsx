@@ -1,8 +1,30 @@
 
 
-const Categorias = () => {
+const Categorias = ({categorias,filtrosItems}) => {
+
+    const produtos=(categoria)=>{
+        switch(categoria.toLowerCase()){
+            case "gamer":
+                return;
+            case "acao":
+                return;
+            case "aventura":
+                return;
+            case "rpg":
+                return;
+            default:
+                return null;
+        }
+    }
   return (
-    <div>Categorias</div>
+    <nav>
+        {categorias.map((categoria,index) => (
+            <button key={index} onClick={() => filtrosItems(categoria)}>
+                {produtos(categoria)}
+                {categoria}
+            </button>
+        ))}
+    </nav>
   )
 }
 
